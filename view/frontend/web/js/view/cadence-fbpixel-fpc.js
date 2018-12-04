@@ -5,7 +5,8 @@
 define([
     'ko',
     'uiComponent',
-    'Magento_Customer/js/customer-data'
+    'Magento_Customer/js/customer-data',
+	'mage/cookies'
 ], function (ko, Component, customerData) {
     'use strict';
     return Component.extend({

@@ -11,7 +11,7 @@
             <block class="Cadence\Fbpixel\Block\AbstractBlock" name="cadence_fbpixel_events" template="Cadence_Fbpixel::cadence/fbpixel/events.phtml" />
         </referenceBlock>
         <referenceBlock name="after.body.start">
-            <block class="Magento\Framework\View\Element\Template" name="cadence.fbpixel.fpc" before="-"
+            <block class="Cadence\Fbpixel\Block\AbstractBlock" name="cadence.fbpixel.fpc" before="-"
                    template="Cadence_Fbpixel::cadence/fbpixel/fpc.phtml">
                 <arguments>
                     <argument name="jsLayout" xsi:type="array">

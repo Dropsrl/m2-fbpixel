@@ -97,7 +97,9 @@ class Data extends AbstractHelper{
 		$html = <<<HTML
     <!-- Begin Facebook {$event} Pixel -->
     <script type="text/javascript">
-        fbq('track', '{$event}'{$json});
+    	if (typeof fbq != "undefined") {
+        	fbq('track', '{$event}'{$json});
+        }
     </script>
     <!-- End Facebook {$event} Pixel -->
 HTML;

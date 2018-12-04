@@ -5,6 +5,27 @@ if (!$helper->isVisitorPixelEnabled()) {
 	return;
 }
 $id = $helper->getVisitorPixelId();
+
+
+$allowServices = false;
+if ((int)$block->isCookieRestrictionModeEnabled()):
+	$cookie_value = $block->getCookieValue($block->getCookieName());
+
+	if (!empty($cookie_value)):
+		$allowed = json_decode($cookie_value, true);
+
+		if ($allowed[(int)$block->getCurrentWebsiteId()] === 1) {
+			$allowServices = true;
+		}
+	endif;
+
+else:
+	$allowServices = false;
+endif;
+
+if (!$allowServices):
+	return;
+endif;
 ?>
 <!-- Facebook Pixel Code -->
 <script>
@@ -20,4 +41,4 @@ $id = $helper->getVisitorPixelId();
 <noscript><img height="1" width="1" style="display:none"
                src="https://www.facebook.com/tr?id=<?php echo $id ?>&ev=PageView&noscript=1"
     /></noscript>
-<!-- End Facebook Pixel Code -->
+
